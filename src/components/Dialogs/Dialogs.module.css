@@ -1,0 +1,51 @@
+.dialogs{
+    display: grid;
+    grid-template-areas:
+    "d m"
+    ;
+
+    grid-auto-columns: 45% 50%;
+    grid-gap: 10px;
+}
+
+.messages{
+    margin-top: 10px;
+    grid-area: m;
+    border: 1px solid #E89A00;
+}
+
+.dialogsItems{
+    grid-area: d;
+}
+
+.dialogsItems .active .dialog {
+    border: 3px solid #E80000;
+}
+
+.dialog{
+    margin: 10px;
+    height: 50px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #E89A00;
+}
+
+.dialog img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.user {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.friend{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.messageItem{
+
+}

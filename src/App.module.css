@@ -1,0 +1,23 @@
+.appWrapper{
+
+    width: 80%;
+    margin: auto;
+    /* grid-template-areas - определяет по какому шаблону выстроены блоки*/
+    grid-template-areas:
+    /* h h - означает что в первой строке будут заняты 2 колонки блоком с grid-area: h (header) */
+            "h h"
+            "n c"
+    ;
+
+    display: grid; /* применяет к содержимому grid разметку */
+    grid-template-rows: 60px 1fr; /* указываем колличество отдельных логических участков по вертикали */
+                                 /*fr - фракции, читай части от всего объема*/
+    grid-auto-columns: 2fr 12fr; /* указываем колличество отдельных логических участков по горизонтали */
+    grid-gap: 10px;
+
+    background-color: aliceblue;
+}
+
+.content {
+    grid-area: c;
+}

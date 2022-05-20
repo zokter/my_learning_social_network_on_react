@@ -1,0 +1,16 @@
+.photo img{
+    height: 50px;
+    width: 50px;
+    background-color: lightgray;
+    border-radius: 30px;
+}
+
+.friendName{
+    width: 30px;
+    color: white;
+}
+
+.link{
+    text-decoration: none;
+    text-align: center;
+}

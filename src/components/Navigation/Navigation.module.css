@@ -1,0 +1,5 @@
+.nav {
+    grid-area: n;
+    background-color: darkcyan;
+    height: 500px;
+}

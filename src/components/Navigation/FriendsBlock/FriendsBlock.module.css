@@ -1,0 +1,20 @@
+.friendsBlock{
+    width: 100%;
+    display: grid;
+    margin: auto;
+    grid-auto-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-template-areas:
+    "FI FI1 FI2"
+    ;
+}
+
+.friendItem{
+    grid-area: FI;
+}
+.friendItem1{
+    grid-area: FI1;
+}
+.friendItem2{
+    grid-area: FI2;
+}
