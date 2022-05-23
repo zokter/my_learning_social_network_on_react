@@ -5,12 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import state from "./redux/state";
+import {addPost} from "./redux/state";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+addPost("Хватит верстать хуйню, да?");
+addPost("А то не делаю нихуя только верстаю.")
+addPost("Хотя тоже так то навык ага.")
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <App props={state}/>
+            <App data={state} addPost={addPost}/>
         </BrowserRouter>
     </React.StrictMode>
 );

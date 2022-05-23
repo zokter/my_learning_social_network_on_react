@@ -1,0 +1,40 @@
+.textField{
+    grid-area: textField;
+    height: 60px;
+    resize: none;
+    border: none;
+    border-radius: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.textField:focus{
+    outline: none;
+}
+
+.button{
+    grid-area: sendBut;
+    height: 60px;
+    width: 60px;
+    border-radius: 60px;
+    color: white;
+    background-color: darkcyan;
+    text-align: center;
+    font-size: 30px;
+    margin: auto;
+}
+
+.messageInputWrapper{
+    display: grid;
+    grid-auto-columns: 400px 70px;
+    grid-template-areas:
+    "textField sendBut"
+    ;
+    grid-gap: 10px;
+    margin: auto;
+    grid-area: IT;
+    background-color: white;
+    border: 1px darkcyan solid;
+    border-radius: 60px;
+
+}

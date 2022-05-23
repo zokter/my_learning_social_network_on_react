@@ -1,5 +1,5 @@
 import React from "react";
-import stl from "../../Dialogs.module.css"
+import stl from "./MessageItem.module.css"
 
 
 const MessageItem = (props) =>{

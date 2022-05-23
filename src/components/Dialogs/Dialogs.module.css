@@ -1,17 +1,27 @@
 .dialogs{
     display: grid;
+    grid-auto-columns: 45% 50%;
+    grid-auto-rows: 85% 15%;
     grid-template-areas:
     "d m"
+    "none imput"
     ;
-
-    grid-auto-columns: 45% 50%;
-    grid-gap: 10px;
+    grid-column-gap: 5px;
+    grid-row-gap: 0px;
 }
 
 .messages{
     margin-top: 10px;
     grid-area: m;
-    border: 1px solid #E89A00;
+    border-top: 1px solid #E89A00;
+    border-left: 1px solid #E89A00;
+    border-right: 1px solid #E89A00;
+    display: grid;
+    grid-auto-rows: 400px;
+    grid-template-areas:
+    "MI"
+    ;
+    overflow: auto;
 }
 
 .dialogsItems{
@@ -19,7 +29,7 @@
 }
 
 .dialogsItems .active .dialog {
-    border: 3px solid #E80000;
+    border: 2px solid #E80000;
 }
 
 .dialog{
@@ -36,16 +46,20 @@
     border-radius: 50px;
 }
 
-.user {
-    display: flex;
-    justify-content: flex-end;
+.messageItemWrapper{
+    grid-area: MI;
 }
 
-.friend{
-    display: flex;
-    justify-content: flex-start;
-}
-
-.messageItem{
-
+.inputMessageWrapper{
+    grid-area: imput;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    padding-right: 30px;
+    padding-left: 8px;
+    border-left: 1px solid #E89A00;
+    border-right: 1px solid #E89A00;
+    border-bottom: 1px solid #E89A00;
+    padding-bottom: 5px;
 }

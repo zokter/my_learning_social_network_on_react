@@ -12,25 +12,26 @@ import Settings from "./components/Setings/Setings";
 // Компонент в React - это ф-ция возвращающая некоторый JSX, корневой эллемент должен быть только 1
 
 function App(props) {
-    let data = props.props;
+    // debugger;
     return (
         <div className={stl.appWrapper}>
             <Routes>
-                <Route path = "/" element = {<Layout friendsData={data.layout.friendsData}/>}>
+                <Route path = "/" element = {<Layout friendsData={props.data.layout.friendsData}/>}>
                     <Route index  element={<Profile
-                        postsData={data.profilePage.postsData}
-                        avatar={data.profilePage.avatar}
-                        bigPic={data.profilePage.bigPic}
+                        postsData={props.data.profilePage.postsData}
+                        avatar={props.data.profilePage.avatar}
+                        bigPic={props.data.profilePage.bigPic}
+                        addPost={props.addPost}
                     />}/>
                     <Route path = "/profile" element={<Profile
-                        postsData={data.profilePage.postsData}
-                        avatar={data.profilePage.avatar}
-                        bigPic={data.profilePage.bigPic}
+                        postsData={props.data.profilePage.postsData}
+                        avatar={props.data.profilePage.avatar}
+                        bigPic={props.data.profilePage.bigPic}
                     />}/>
                     <Route path = "/dialogs/*" element={<Dialogs
-                        friendsData={data.dialogsPage.friendsData}
-                        messagesData={data.dialogsPage.messagesData}
-                        avatar={data.dialogsPage.avatar}
+                        friendsData={props.data.dialogsPage.friendsData}
+                        messagesData={props.data.dialogsPage.messagesData}
+                        avatar={props.data.dialogsPage.avatar}
                     />}/>
                     <Route path = "/music" element={<Music/>}/>
                     <Route path = "/news" element={<News/>}/>
