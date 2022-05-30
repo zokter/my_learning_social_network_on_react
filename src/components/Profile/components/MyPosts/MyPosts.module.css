@@ -1,0 +1,59 @@
+.teatAreaWrapper{
+    margin-right: 10px;
+}
+
+.buttonWrapper{
+    display: grid;
+    grid-area: bu;
+    margin-right: 10px;
+}
+
+.textArea{
+    grid-area: ta;
+    resize: none;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px #E89A00 solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.textArea:focus{
+    outline: none;
+    border: 1px #E89A00 solid;
+}
+
+.buttonWrapper button{
+    border: none;
+    background-color: #E89A00;
+    color: white;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px #E89A00 solid;
+    border-top: none;
+}
+
+.buttonWrapper button:hover{
+    color: #E89A00;
+    background-color: white;
+}
+.buttonWrapper button:active{
+    background-color: gray;
+    color: white;
+}
+
+.newPostInputWrapper{
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 90px 30px;
+    grid-row-gap: 0px;
+    grid-template-areas:
+    "ta"
+    "bu"
+    ;
+}

@@ -17,16 +17,22 @@ function App(props) {
         <div className={stl.appWrapper}>
             <Routes>
                 <Route path = "/" element = {<Layout friendsData={props.data.layout.friendsData}/>}>
-                    <Route index  element={<Profile
+                    <Route index element={<Profile
                         postsData={props.data.profilePage.postsData}
                         avatar={props.data.profilePage.avatar}
                         bigPic={props.data.profilePage.bigPic}
+                        newPostText={props.data.profilePage.newPostText}
                         addPost={props.addPost}
+                        newPostTextChange={props.newPostTextChange}
+
                     />}/>
                     <Route path = "/profile" element={<Profile
                         postsData={props.data.profilePage.postsData}
                         avatar={props.data.profilePage.avatar}
                         bigPic={props.data.profilePage.bigPic}
+                        newPostText={props.data.profilePage.newPostText}
+                        addPost={props.addPost}
+                        newPostTextChange={props.newPostTextChange}
                     />}/>
                     <Route path = "/dialogs/*" element={<Dialogs
                         friendsData={props.data.dialogsPage.friendsData}
