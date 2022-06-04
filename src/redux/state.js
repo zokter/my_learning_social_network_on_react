@@ -40,7 +40,15 @@ let store = {
     _callSubscriber() {
         console.log("State changed.")
     },
-    addPost(){
+
+    getState(){
+        return this._state
+    },
+    subscribe(observer) { //observer
+        this._callSubscriber = observer;
+    },
+
+    _addPost(){
         // debugger;
         let newPost = {
             id: this._state.profilePage.postsData.length,
@@ -53,16 +61,21 @@ let store = {
         this._state.profilePage.newPostText = "";
         this._callSubscriber(this._state);
     },
-    newPostTextChange(inputText){
-        debugger;
+    _newPostTextChange(inputText){
+        // debugger;
         this._state.profilePage.newPostText = inputText;
         this._callSubscriber(this._state);
     },
-    subscribe(observer) { //observer
-        this._callSubscriber = observer;
-    },
-    getState(){
-        return this._state
+
+    dispatch(action){ //{type: 'ADD-POST' }
+        // debugger;
+        if(action.type === "ADD-POST"){
+            this._addPost();
+        }
+        else if (action.type === "NEW-POST-TEXT-CHANGE"){
+            this._newPostTextChange(action.inputText)
+        }
+
     }
 }
 

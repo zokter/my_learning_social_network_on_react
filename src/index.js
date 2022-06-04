@@ -13,10 +13,12 @@ export const renderWholeApp = (state) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App data={state} addPost={store.addPost.bind(store)} //и надо биндить контекст чтоб ф-цию дальше передать без изменения контекста
-                /*addPost={store.addPost} тут есть подвох с контекстом вызова из за того что
-                addPost не вызывается напрямую у store, а уходит в App и далее callback-ом, мы получаем изменение контекста вызова*/
-                newPostTextChange={store.newPostTextChange.bind(store)}/>
+                <App data={state} dispatch={store.dispatch.bind(store)}/>
+
+                {/*<App data={state} addPost={store.addPost.bind(store)} //и надо биндить контекст чтоб ф-цию дальше передать без изменения контекста*/}
+                {/*addPost={store.addPost} тут есть подвох с контекстом вызова из за того что
+                addPost не вызывается напрямую у store, а уходит в App и далее callback-ом, мы получаем изменение контекста вызова*/}
+                {/*newPostTextChange={store.newPostTextChange.bind(store)}/>*/}
             </BrowserRouter>
         </React.StrictMode>
     );

@@ -13,15 +13,23 @@ const MyPosts = (props) => {
     const addPost = () => {
         // debugger;
         //ссылка на элемент обладает свойством current, который ссылается на нативный html элемент
+        let action = {
+            type: "ADD-POST",
+        }
         let text = newPostElement.current.value;
         if(text) {
-            props.addPost(); // и вот тут как раз и меняется тот самый контекст вызова, о котором написано в App.js
+            props.dispatch(action); // и вот тут как раз и меняется тот самый контекст вызова, о котором написано в App.js
         }
     }
 
     const newPostTextChange = () => {
         let text = newPostElement.current.value;
-        props.newPostTextChange(text); // и вот тут как раз и меняется тот самый контекст вызова, о котором написано в App.js
+        // props.newPostTextChange(text); // и вот тут как раз и меняется тот самый контекст вызова, о котором написано в App.js
+        let action = {
+            type: "NEW-POST-TEXT-CHANGE",
+            inputText: text,
+        }
+        props.dispatch(action);
     }
 
     return (

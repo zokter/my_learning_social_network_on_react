@@ -22,16 +22,14 @@ function App(props) {
                         avatar={props.data.profilePage.avatar}
                         bigPic={props.data.profilePage.bigPic}
                         newPostText={props.data.profilePage.newPostText}
-                        addPost={props.addPost}
-                        newPostTextChange={props.newPostTextChange}
+                        dispatch={props.dispatch}
 
                     />}/>
                     <Route path = "/profile" element={<Profile
                         postsData={props.data.profilePage.postsData}
                         avatar={props.data.profilePage.avatar}
                         bigPic={props.data.profilePage.bigPic}
-                        newPostText={props.data.profilePage.newPostText}
-                        addPost={props.addPost}
+                        dispatch={props.dispatch}
                         newPostTextChange={props.newPostTextChange}
                     />}/>
                     <Route path = "/dialogs/*" element={<Dialogs
