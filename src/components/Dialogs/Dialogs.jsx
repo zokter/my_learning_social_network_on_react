@@ -30,7 +30,6 @@ const Dialogs = (props) => {
             />
         )
     })
-
     return (
         <div className={stl.dialogs}>
             <div className={stl.dialogsItems}>
@@ -42,7 +41,7 @@ const Dialogs = (props) => {
                 </div>
             </div>
             <div className={stl.inputMessageWrapper}>
-                <MessageInput/>
+                <MessageInput newMessageText={props.newMessageText} dispatch={props.dispatch}/>
             </div>
         </div>
     )

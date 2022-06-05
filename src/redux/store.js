@@ -1,3 +1,7 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import layoutReducer from "./layout-reducer";
+
 let store = {
     _state: {
         profilePage:{ //тут данные разбиты на ветки. по обслуживаемым ими страницам эта для профиля
@@ -18,12 +22,12 @@ let store = {
                 {id: 4, name: "пахую", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMNtnT7WdVHAPf4cup2BpWMJB-ofgJOgGyfg&usqp=CAU",},
             ],
             messagesData: [
-                { id: 1, sender: true, message: "Как"},
-                { id: 2, sender: false, message: "правильно"},
-                { id: 3, sender: true, message: "какать"},
+                { id: 0, sender: true, message: "Как"},
+                { id: 1, sender: false, message: "правильно"},
+                { id: 2, sender: true, message: "какать"},
             ],
             avatar: "https://sun9-70.userapi.com/s/v1/ig2/OvRU3sFOCduw9efCVCSxVIYbsiiSnmELCnjR8E6OfiQevBcCcrPZ9z0K7jGMVivB9W_dQTGMSlB7DNOaVppPEWr4.jpg?size=604x400&quality=96&type=album",
-
+            newMessageText: "",
         },
 
         layout: {
@@ -48,37 +52,15 @@ let store = {
         this._callSubscriber = observer;
     },
 
-    _addPost(){
-        // debugger;
-        let newPost = {
-            id: this._state.profilePage.postsData.length,
-            postText: this._state.profilePage.newPostText,
-            likesCount: 0,
-        };
-
-        // console.log(newPost.postText);
-        this._state.profilePage.postsData.push(newPost);
-        this._state.profilePage.newPostText = "";
-        this._callSubscriber(this._state);
-    },
-    _newPostTextChange(inputText){
-        // debugger;
-        this._state.profilePage.newPostText = inputText;
-        this._callSubscriber(this._state);
-    },
-
     dispatch(action){ //{type: 'ADD-POST' }
         // debugger;
-        if(action.type === "ADD-POST"){
-            this._addPost();
-        }
-        else if (action.type === "NEW-POST-TEXT-CHANGE"){
-            this._newPostTextChange(action.inputText)
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.layout = layoutReducer(this._state.layout, action);
+        this._callSubscriber(this._state);
 
     }
 }
-
 
 export default store
 window.store = store

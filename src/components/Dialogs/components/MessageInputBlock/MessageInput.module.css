@@ -26,11 +26,10 @@
 
 .messageInputWrapper{
     display: grid;
-    grid-auto-columns: 400px 70px;
+    grid-auto-columns: 15fr 2fr;
     grid-template-areas:
     "textField sendBut"
     ;
-    grid-gap: 10px;
     margin: auto;
     grid-area: IT;
     background-color: white;
