@@ -17,17 +17,10 @@ function App(props) {
     return (
         <div className={stl.appWrapper}>
             <Routes>
-                <Route path = "/" element = {<Layout friendsData={props.data.layout.friendsData}/>}>
-                    <Route index element={<Profile
-                        store={props.store}
-
-                    />}/>
-                    <Route path = "/profile" element={<Profile
-                        store={props.store}
-                    />}/>
-                    <Route path = "/dialogs/*" element={<DialogsContainer
-                        store={props.store}
-                    />}/>
+                <Route path = "/" element = {<Layout/>}>
+                    <Route index element={<Profile/>}/>
+                    <Route path = "/profile" element={<Profile/>}/>
+                    <Route path = "/dialogs/*" element={<DialogsContainer/>}/>
                     <Route path = "/music" element={<Music/>}/>
                     <Route path = "/news" element={<News/>}/>
                     <Route path = "/settings" element={<Settings/>}/>

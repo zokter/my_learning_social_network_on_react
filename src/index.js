@@ -6,6 +6,7 @@ import ReactDOM from "react-dom/client";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import StoreContext from "./StoreContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,12 +15,14 @@ export const renderWholeApp = (state) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App data={state} dispatch={store.dispatch.bind(store)} store={store}/>
+                <StoreContext.Provider value={store}>
+                    <App/>
 
-                {/*<App data={state} addPost={store.addPost.bind(store)} //и надо биндить контекст чтоб ф-цию дальше передать без изменения контекста*/}
-                {/*addPost={store.addPost} тут есть подвох с контекстом вызова из за того что
+                    {/*<App data={state} addPost={store.addPost.bind(store)} //и надо биндить контекст чтоб ф-цию дальше передать без изменения контекста*/}
+                    {/*addPost={store.addPost} тут есть подвох с контекстом вызова из за того что
                 addPost не вызывается напрямую у store, а уходит в App и далее callback-ом, мы получаем изменение контекста вызова*/}
-                {/*newPostTextChange={store.newPostTextChange.bind(store)}/>*/}
+                    {/*newPostTextChange={store.newPostTextChange.bind(store)}/>*/}
+                </StoreContext.Provider>
             </BrowserRouter>
         </React.StrictMode>
     );
@@ -30,7 +33,6 @@ export const renderWholeApp = (state) => {
 }
 
 store.subscribe(() => {
-    let state = store.getState();
-    renderWholeApp(state);
+    renderWholeApp();
 })
-renderWholeApp(store.getState());
+renderWholeApp();

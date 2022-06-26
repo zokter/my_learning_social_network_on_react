@@ -6,8 +6,8 @@ const Profile = (props) => {
     debugger;
     return (
         <div>
-            <ProfileInfo bigPic={props.bigPic}/>
-            <MyPostsContainer store={props.store}
+            <ProfileInfo/>
+            <MyPostsContainer
             />
         </div>
     )
