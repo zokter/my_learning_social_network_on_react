@@ -1,7 +1,6 @@
 import React from "react";
 import UsersPosts from "../../UsersPosts";
 import stl from "./MyPosts.module.css"
-import {addPostActionCreator, postTextChangeActionCreator} from "../../../../redux/profile-reducer";
 
 const MyPosts = (props) => {
     // debugger;
@@ -16,14 +15,14 @@ const MyPosts = (props) => {
         //ссылка на элемент обладает свойством current, который ссылается на нативный html элемент
         let text = newPostElement.current.value;
         if(text) {
-            props.dispatch(addPostActionCreator());
+            props.addPost()
         }
     }
 
     const newPostTextChange = () => {
         let text = newPostElement.current.value;
         // props.newPostTextChange(text); // и вот тут как раз и меняется тот самый контекст вызова, о котором написано в App.js
-        props.dispatch(postTextChangeActionCreator(text));
+        props.textChange(text)
     }
 
     return (

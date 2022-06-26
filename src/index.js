@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
-import store from "./redux/store";
+// import store from "./redux/store";
+import store from "./redux/redux-store";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
@@ -13,7 +14,7 @@ export const renderWholeApp = (state) => {
     root.render(
         <React.StrictMode>
             <BrowserRouter>
-                <App data={state} dispatch={store.dispatch.bind(store)}/>
+                <App data={state} dispatch={store.dispatch.bind(store)} store={store}/>
 
                 {/*<App data={state} addPost={store.addPost.bind(store)} //и надо биндить контекст чтоб ф-цию дальше передать без изменения контекста*/}
                 {/*addPost={store.addPost} тут есть подвох с контекстом вызова из за того что
@@ -28,5 +29,8 @@ export const renderWholeApp = (state) => {
     reportWebVitals();
 }
 
-store.subscribe(renderWholeApp)
+store.subscribe(() => {
+    let state = store.getState();
+    renderWholeApp(state);
+})
 renderWholeApp(store.getState());

@@ -9,14 +9,14 @@ const MessageInput = (props) => {
 
     const onNewMessageChange = () => {
         let text = newMessageArea.current.value;
-        props.dispatch(messageTextChangeActionCreator(text))
+        props.onNewMessageChange(text);
     }
 
     const addMessage = () => {
         let text = newMessageArea.current.value;
 
         if(text){
-            props.dispatch(addMessageActionCreator())
+            props.addMessage();
         }
     }
 

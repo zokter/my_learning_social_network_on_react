@@ -7,6 +7,7 @@ import NotFoundPage from "./components/NotFound/404";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Settings from "./components/Setings/Setings";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 // Компонент в React - это ф-ция возвращающая некоторый JSX, корневой эллемент должен быть только 1
@@ -18,26 +19,14 @@ function App(props) {
             <Routes>
                 <Route path = "/" element = {<Layout friendsData={props.data.layout.friendsData}/>}>
                     <Route index element={<Profile
-                        postsData={props.data.profilePage.postsData}
-                        avatar={props.data.profilePage.avatar}
-                        bigPic={props.data.profilePage.bigPic}
-                        newPostText={props.data.profilePage.newPostText}
-                        dispatch={props.dispatch}
+                        store={props.store}
 
                     />}/>
                     <Route path = "/profile" element={<Profile
-                        postsData={props.data.profilePage.postsData}
-                        avatar={props.data.profilePage.avatar}
-                        bigPic={props.data.profilePage.bigPic}
-                        newPostText={props.data.profilePage.newPostText}
-                        dispatch={props.dispatch}
+                        store={props.store}
                     />}/>
-                    <Route path = "/dialogs/*" element={<Dialogs
-                        friendsData={props.data.dialogsPage.friendsData}
-                        messagesData={props.data.dialogsPage.messagesData}
-                        avatar={props.data.dialogsPage.avatar}
-                        newMessageText={props.data.dialogsPage.newMessageText}
-                        dispatch={props.dispatch}
+                    <Route path = "/dialogs/*" element={<DialogsContainer
+                        store={props.store}
                     />}/>
                     <Route path = "/music" element={<Music/>}/>
                     <Route path = "/news" element={<News/>}/>

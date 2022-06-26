@@ -6,19 +6,19 @@ import MessageInput from "./components/MessageInputBlock/MessageInput";
 
 
 const Dialogs = (props) => {
+    debugger;
+    // const dialogsData = props.friendsData;
+    // const messagesData = props.messagesData;
 
-    const dialogsData = props.friendsData;
-    const messagesData = props.messagesData;
-
-    const dialogElements = dialogsData.map((dialog, index) =>
+    const dialogElements = props.dialogsData.map((dialog, index) =>
         <DialogItem
             key={dialog.id}
             id={dialog.id}
             name={dialog.name}
             avatar={props.avatar}
-            friendsAvatar={props.friendsData[index].avatar}
+            friendsAvatar={props.dialogsData[index].avatar}
         />)
-    const messageElements = messagesData.map(message => {
+    const messageElements = props.messagesData.map(message => {
         return (
             <MessageItem
                 key={message.id}
@@ -41,7 +41,10 @@ const Dialogs = (props) => {
                 </div>
             </div>
             <div className={stl.inputMessageWrapper}>
-                <MessageInput newMessageText={props.newMessageText} dispatch={props.dispatch}/>
+                <MessageInput newMessageText={props.newMessageText}
+                              addMessage={props.addMessage}
+                              onNewMessageChange={props.onNewMessageChange}
+                />
             </div>
         </div>
     )
